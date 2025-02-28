@@ -1,0 +1,32 @@
+body {
+    background-color: Plum;
+    color: RebeccaPurple;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
+}
+main {
+    background-color: Violet ;
+    color: RebeccaPurple;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    padding: 20px;
+}
+header {
+    background-color: Plum;
+    color: Indigo;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    font-size: 14pt;
+}
+footer {
+    background-color: Plum;
+    color: Indigo;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    text-align: right;
+    font-style: italic;
+}
+a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
