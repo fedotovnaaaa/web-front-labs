@@ -26,7 +26,24 @@ footer {
     text-align: right;
     font-style: italic;
 }
-a {
+a:link {
+    color: rgb(118, 0, 131);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
+}
+a:visited {
+    color: rgb(39, 71, 131);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+a:hover {
+    color: #0066ff;
+    background-color: chartreuse;
+    text-shadow: rgba(46, 139, 86, 0.796);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+}
+a:active {
+    color: black;
+    opacity: 0.3;
 }
