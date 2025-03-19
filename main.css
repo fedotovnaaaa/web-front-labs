@@ -26,6 +26,12 @@ footer {
     text-align: right;
     font-style: italic;
 }
+a {
+    color: indigo;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    transition: 1s 2s;
+}
 a:link {
     color: rgb(118, 0, 131);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -42,6 +48,7 @@ a:hover {
     text-shadow: rgba(46, 139, 86, 0.796);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: underline;
+    transition: 0.3s;
 }
 a:active {
     color: black;
