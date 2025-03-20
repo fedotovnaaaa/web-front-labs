@@ -5,11 +5,23 @@ body {
     margin: 0px;
 }
 main {
-    background-color: rgb(251, 202, 251) ;
+    border: #51285d;
+    background-color: rgb(191, 125, 191) ;
     color: RebeccaPurple;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 20px;
-    padding: 20px;
+    margin: 10px;
+    padding: 10px;
+    transition: 0.3s;
+}
+main:hover {
+    border: #51285d;
+    background-color: rgb(255, 180, 255);
+    box-shadow: 0 0 15px #ff00dd;
+    color: RebeccaPurple;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px;
+    padding: 10px;
+    transition: 0.3s;
 }
 header {
     background-color: Plum;
@@ -30,7 +42,7 @@ a {
     color: indigo;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
-    transition: 1s 2s;
+    transition: 1s 0.3s;
 }
 a:link {
     color: rgb(118, 0, 131);
@@ -53,4 +65,19 @@ a:hover {
 a:active {
     color: black;
     opacity: 0.3;
+}
+div.menu {
+    border: 7px solid #00ff8496;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+    transition: 0.3s;
+}
+div.menu:hover {
+    background-color: rgba(117, 255, 246, 0.664);
+    box-shadow: 0 0 15px #498df4;
+    transition: 0.3s;
+}
+h1.z {
+    text-align: center;
 }
