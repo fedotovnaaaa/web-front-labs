@@ -9,7 +9,7 @@ main {
     background-color: rgb(191, 125, 191) ;
     color: RebeccaPurple;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 10px;
+    margin: 10px 20px 45px;
     padding: 10px;
     transition: 0.3s;
 }
@@ -37,6 +37,10 @@ footer {
     padding: 10px;
     text-align: right;
     font-style: italic;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 a {
     color: indigo;
