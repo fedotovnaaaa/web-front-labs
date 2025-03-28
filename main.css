@@ -6,7 +6,7 @@ body {
 }
 main {
     border: #51285d;
-    background-color: rgb(191, 125, 191) ;
+    /*background-color: rgb(191, 125, 191) ;*/
     color: RebeccaPurple;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 10px 20px 45px;
@@ -15,12 +15,10 @@ main {
 }
 main:hover {
     border: #51285d;
-    background-color: rgb(255, 180, 255);
-    box-shadow: 0 0 15px #ff00dd;
+    /*background-color: rgb(255, 180, 255);*/
+    box-shadow: 0 0 15px #ffcbfb;
     color: RebeccaPurple;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 10px;
-    padding: 10px;
     transition: 0.3s;
 }
 header {
