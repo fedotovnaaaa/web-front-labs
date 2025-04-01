@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Федотова Юлия Сергеевна. Position</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        div {
+            width: 500px;
+            height: 250px;
+            line-height: 70px; /*текст по центру по высоте, высота строки*/
+            text-align: center;
+            background-color: white;
+            color: palevioletred;
+            border: 2px solid palevioletred;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 0;
+            position: relative;
+        }
+        .kva {
+            width: 400px;
+            height: 50px;
+            border: 3px solid palevioletred;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 1;
+            position: relative;
+        }
+        .kvac {
+            width: 0px;
+            height: 50px;
+            background-color: rgb(105, 8, 55);
+            left: 48px;
+            top: 110px;
+            z-index: 2;
+            position: absolute;
+            transition: 5s;
+        }
+        .knopka {
+            width: 300px;
+            height: 40px;
+            line-height: 40px; 
+            text-align: center;
+            border: 2px solid palevioletred;
+            border-radius: 20px;
+            background-color: rgb(105, 8, 55);
+            box-shadow: 0 0 5px rgb(237, 133, 237);
+            color: white;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 3;
+            position: relative;
+            transition: 0.4s;
+        }
+        .knopka:hover {
+            box-shadow: 0 0 15px purple;
+            transition: 0.4s;
+        }
+        .knopka:active {
+            box-shadow: none;
+            transition: 0.3s;
+        }
+        .knopka:active+.kvac {
+            width: 400px;
+            background-color: rgb(105, 8, 55);
+            transition: 5s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+    </header>
+
+    <main>
+        <div>
+            <h2>Степень прогресса</h2>
+            <div class="kva"></div>
+            <div class="knopka">Нажмите и удерживайте</div>
+            <div class="kvac"></div>
+        </div>
+
+    </main>
+
+    <footer>
+        &copy; Федотова Юлия, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
