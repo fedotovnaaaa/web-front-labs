@@ -1,13 +1,13 @@
 body {
-    background-color: Plum;
-    color: RebeccaPurple;
+    background-color: rgb(247, 200, 247);
+    color: rgb(101, 0, 101);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
 }
 main {
     border: #51285d;
     /*background-color: rgb(191, 125, 191) ;*/
-    color: RebeccaPurple;
+    color: rgb(101, 0, 101);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 10px 20px 45px;
     padding: 10px;
@@ -16,21 +16,21 @@ main {
 main:hover {
     border: #51285d;
     /*background-color: rgb(255, 180, 255);*/
-    box-shadow: 0 0 15px #ffcbfb;
+    /*box-shadow: 0 0 15px #ffcbfb;*/
     color: RebeccaPurple;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: 0.3s;
 }
 header {
-    background-color: Plum;
-    color: Indigo;
+    background-color: rgb(101, 0, 101);
+    color: rgb(255, 255, 255);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 10px;
     font-size: 14pt;
 }
 footer {
-    background-color: Plum;
-    color: Indigo;
+    background-color: rgb(101, 0, 101);
+    color: rgb(255, 255, 255);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 10px;
     text-align: right;
