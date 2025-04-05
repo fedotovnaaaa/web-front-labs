@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Федотова Юлия Сергеевна. Position</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        .tiger {
+            position: absolute;
+            left: 180px;
+            top: 140px;
+            color: rgb(253, 190, 72);
+            font-size: 40pt;
+            z-index: 1;
+            transition: 1s;
+            animation-name: tiger;
+            animation-duration: 3s;    /* Длительность одного цикла */
+            animation-iteration-count: infinite;    /* Кол-во итераций */
+            animation-direction: alternate;    /* Должна ли анимация проигрываться в обратном порядке */
+            animation-timing-function: linear;    /* Анимация проигрывается равномерно, без колебаний скорости */
+        }
+        .tiger:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 45pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;    /* Пауза при наведении */
+        }
+        @keyframes tiger {
+            from {
+                left: 180px;
+                top: 140px;
+            }
+            to {
+                left: 700px;
+                top: 140px; 
+                transform: rotate(45deg);
+            }
+        }
+        .lion {
+            position: absolute;
+            left: 200px;
+            top: 160px;
+            color: rgb(248, 88, 88);
+            font-size: 60pt;
+            z-index: 2;
+            transition: 1s;
+            animation-name: lion;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+        .lion:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 65pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes lion {
+            from {
+                left: 200px;
+                top: 160px;
+                color: rgb(248, 88, 88);
+                font-size: 60pt;
+            }
+            25% {
+                left: 200px;
+                top: 490px;
+                color: rgb(255, 37, 37);
+                font-size: 90pt;
+            }
+            50% {
+                left: 1000px;
+                top: 490px;
+                color: rgb(255, 123, 0);
+                font-size: 40pt;
+            }
+            75% {
+                left: 1000px;
+                top: 160px;
+                color: rgb(255, 0, 0);
+                font-size: 90pt;
+            }
+            to {
+                left: 200px;
+                top: 160px;
+                color: rgb(248, 88, 88);
+                font-size: 60pt;
+                transform: rotate(360deg);
+            }
+        }
+        .cat {
+            position: absolute;
+            left: 200px;
+            top: 230px;
+            color: rgb(107, 107, 107);
+            font-size: 60pt;
+            transform: rotate(45deg);
+            z-index: 3;
+            transition: 1s;
+            animation-name: cat;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;    /* Возвращается к началу кадра */
+            animation-timing-function: linear;
+        }
+        .cat:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 65pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes cat {
+            from {
+                left: 200px;
+                top: 230px;
+            }
+            35% {
+                left: 1000px;
+                top: 500px;
+            }
+            70% {
+                left: 1000px;
+                top: 150px;
+                color: rgb(31, 31, 31);
+                font-size: 70pt;
+            }
+            to {
+                left: 200px;
+                top: 230px;
+            }
+        }
+        .dog {
+            position: absolute;
+            left: 450px;
+            top: 230px;
+            color: rgb(152, 59, 223);
+            font-size: 20pt;
+            transform: rotate(20deg);
+            z-index: 4;
+            transition: 1s;
+            animation-name: dog;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+        .dog:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 25pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes dog {
+            from {
+                left: 450px;
+                top: 230px;
+            }
+            to {
+                left: 1100px;
+                top: 450px;
+                font-size: 120pt;
+                transform: rotate(720deg);
+            }
+        }
+        .cow {
+            position: absolute;
+            left: 600px;
+            top: 490px;
+            color: rgb(246, 255, 0);
+            font-size: 100pt;
+            transform: rotate(-20deg);
+            z-index: 5;   
+            transition: 1s;
+            animation-name: cow;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-timing-function: linear;
+        }
+        .cow:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 105pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes cow {
+            from {
+                left: 600px;
+                top: 490px;
+            }
+            35% {
+                left: 50px;
+                top: 80px;
+                font-size: 24pt;
+                transform: rotate(45deg);
+            }
+            70% {
+                left: 50px;
+                top: 490px;
+            }
+            to {
+                left: 600px;
+                top: 490px;
+                font-size: 100pt;
+            }
+        }
+        .hamster {
+            position: absolute;
+            left: 700px;
+            top: 300px;
+            color: rgb(139, 255, 104);
+            font-size: 120pt;
+            transform: rotate(30deg);   
+            z-index: 6;
+            transition: 1s;
+            animation-name: hamster;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+        .hamster:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 125pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes hamster {
+            from {
+                left: 700px;
+                top: 300px;
+            }
+            to {
+                left: 10px;
+                top: 300px; 
+                color: rgb(102, 255, 55);
+            }
+        }
+        .rhinoceros {
+            position: absolute;
+            left: 900px;
+            top: 300px;
+            color: rgb(255, 104, 119);
+            font-size: 50pt;
+            z-index: 7; 
+            transition: 1s;
+            animation-name: rhinoceros;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+        .rhinoceros:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 55pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes rhinoceros {
+            from {
+                left: 900px;
+                top: 300px;
+            }
+            50% {
+                left: 900px;
+                top: 30px;
+            }
+            to {
+                left: 900px;
+                top: 590px; 
+            }
+        }
+        .giraffe {
+            position: absolute;
+            left: 1000px;
+            top: 250px;
+            color: rgb(255, 237, 104);
+            font-size: 40pt; 
+            transform: rotate(90deg);   
+            z-index: 8;
+            transition: 1s;
+            animation-name: giraffe;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-timing-function: linear;
+        }
+        .giraffe:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 45pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes giraffe {
+            from {
+                left: 1000px;
+                top: 250px;
+            }
+            25% {
+                left: 1370px;
+                top: 250px;
+            }
+            50% {
+                left: 1370px;
+                top: 550px; 
+                color: rgb(195, 255, 0);
+            }
+            75% {
+                left: 1000px;
+                top: 550px; 
+            }
+            to {
+                left: 1000px;
+                top: 250px;
+            }
+        }
+        .penguin {
+            position: absolute;
+            left: 400px;
+            top: 250px;
+            color: rgb(104, 255, 177);
+            font-size: 40pt; 
+            transform: rotate(-90deg); 
+            z-index: 9;
+            transition: 1s;
+            animation-name: penguin;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-timing-function: linear;
+        }
+        .penguin:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 45pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes penguin {
+            from {
+                left: 400px;
+                top: 250px;
+            }
+            25% {
+                left: 1350px;
+                top: 390px;
+            }
+            55% {
+                left: 45px;
+                top: 250px; 
+            }
+            to {
+                left: 400px;
+                top: 250px;
+            }
+        }
+        .bear {
+            position: absolute;
+            left: 190px;
+            top: 300px;
+            color: rgb(107, 104, 255);
+            font-size: 40pt; 
+            transform: rotate(-15deg); 
+            z-index: 10;
+            transition: 1s;
+            animation-name: bear;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+        .bear:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 45pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes bear {
+            from {
+                left: 190px;
+                top: 300px;
+            }
+            to {
+                left: 20px;
+                top: 50px;
+                font-size: 70pt;
+                transform: rotate(360deg);
+            }
+        }
+        .dinosaur {
+            position: absolute;
+            left: 70px;
+            top: 450px;
+            color: rgb(255, 104, 210);
+            font-size: 90pt; 
+            transform: rotate(10deg);  
+            z-index: 11;
+            transition: 1s;
+            animation-name: dinosaur;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+        .dinosaur:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 95pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes dinosaur {
+            from {
+                left: 70px;
+                top: 450px;
+            }
+            to {
+                left: 200px;
+                top: 160px;
+                font-size: 200pt;
+                color: rgb(255, 0, 89);
+                transform: rotate(-25deg);
+            }
+        }
+        .kangaroo {
+            position: absolute;
+            left: 100px;
+            top: 400px;
+            color: rgb(235, 255, 104);
+            font-size: 55pt; 
+            transform: rotate(-30deg);  
+            z-index: 12;
+            transition: 1s;
+            animation-name: kangaroo;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+        .kangaroo:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 60pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes kangaroo {
+            from {
+                left: 100px;
+                top: 400px;
+            }
+            50% {
+                left: 100px;
+                top: 50px;
+                transform: rotate(0deg);  
+            }
+            75% {
+                left: 100px;
+                top: 550px;
+                transform: rotate(30deg);  
+            }
+            to {
+                left: 100px;
+                top: 400px;
+            }
+        }
+        .monkey {
+            position: absolute;
+            left: 600px;
+            top: 100px;
+            color: rgb(144, 104, 255);
+            font-size: 55pt; 
+            z-index: 13;
+            transition: 1s;
+            animation-name: monkey;
+            animation-duration: 50ms;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-timing-function: linear;
+        }
+        .monkey:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 60pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes monkey {
+            from {
+                transform: rotate(0deg);  
+            }
+            to {
+                transform: rotate(720deg);  
+            }
+        }
+        .elephant {
+            position: absolute;
+            left: 640px;
+            top: 350px;
+            color: rgb(104, 210, 255);
+            font-size: 40pt; 
+            transform: rotate(-30deg);
+            z-index: 14;
+            transition: 1s;
+            animation-name: elephant;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+        .elephant:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 45pt;
+            z-index: 17;
+            transition: 1s;
+            animation-play-state: paused;
+        }
+        @keyframes elephant {
+            from {
+                left: 640px;
+                top: 350px;            
+            }
+            to {
+                left: 700px;
+                top: 600px; 
+                transform: rotate(0deg);             
+            }
+        }
+        .behemoth {
+            position: absolute;
+            left: 980px;
+            top: 150px;
+            color: rgb(177, 104, 255);
+            font-size: 40pt; 
+            transform: rotate(-40deg); 
+            z-index: 15;
+            transition: 1s;
+            animation-name: behemoth;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+        .behemoth:hover {
+            text-shadow: 0 0 15px rgb(0, 0, 0);
+            font-size: 45pt;
+            transition: 1s; 
+            z-index: 17;
+            animation-play-state: paused;
+        }
+        @keyframes behemoth {
+            from {
+                left: 980px;
+                top: 150px;            
+            }
+            to {
+                left: 1320px;
+                top: 150px; 
+                transform: rotate(-90deg);    
+                color: rgb(77, 103, 249);         
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+    </header>
+
+    <main>
+        <div class="tiger">Tiger</div>
+        <div class="lion">Lion</div>
+        <div class="cat">Cat</div>
+        <div class="dog">Dog</div>
+        <div class="cow">Cow</div>
+        <div class="hamster">Hamster</div>
+        <div class="rhinoceros">Rhinoceros</div>
+        <div class="giraffe">Giraffe</div>
+        <div class="penguin">Penguin</div>
+        <div class="bear">Bear</div>
+        <div class="dinosaur">Dinosaur</div>
+        <div class="kangaroo">Kangaroo</div>
+        <div class="monkey">Monkey</div>
+        <div class="elephant">Elephant</div>
+        <div class="behemoth">Behemoth</div>
+    </main>
+
+    <footer>
+        &copy; Федотова Юлия, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
