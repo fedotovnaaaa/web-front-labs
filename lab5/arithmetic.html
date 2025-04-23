@@ -126,6 +126,16 @@
             let fut = 'Всем привет! Это мой видеоблог! \nЕсли у вас есть лимон, сделайте лимонад!';
             alert(fut);
         }
+        function changeOutput(buttonNum, backColor, textColor, borderType, borderRadius, borderWidth, borderColor) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Нажата кнопка ' + buttonNum;
+            output.style.backgroundColor = backColor;
+            output.style.color = textColor;
+            output.style.borderStyle = borderType;
+            output.style.borderRadius = borderRadius;
+            output.style.borderWidth = borderWidth;
+            output.style.borderColor = borderColor;
+        }
     </script>
     <style>
         .message {
@@ -143,6 +153,13 @@
         }
         .mouse {
             cursor: pointer;
+        }
+        #output {
+            border: 1px solid;
+            width: 300px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
         }
     </style>
 </head>
@@ -166,6 +183,15 @@
         <div class="message" onclick="showDiv()">Найти отношение чисел</div>
 
         <div class="message" onclick="showStep()">Возвести в степень</div>
+
+        <div>
+            <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'GreenYellow', 'DarkGreen', 'solid', '5px', '2px', 'MediumSeaGreen')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'Gold', 'Crimson', 'dashed', '7px', '3px', 'Salmon')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'RosyBrown', 'Maroon', 'dotted', '10px', '4px', 'Brown')">
+            <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'MediumSlateBlue', 'MidnightBlue', 'double', '20px', '5px', 'Aquamarine')">
+        </div>
+
+        <div id="output"></div>
     </main>
 
     <footer class="mouse" ondblclick="showFooter()">
