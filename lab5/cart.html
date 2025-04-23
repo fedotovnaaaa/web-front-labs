@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Федотова Юлия Сергеевна. Корзина</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .krasota {
+            cursor: pointer;
+            text-align: left;
+            padding-left: 30px;
+            margin-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            line-height: 26px;
+            font-size: 16pt;
+            background-color: plum;
+            border: 2px solid purple;
+            color: purple;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 18px;
+        }
+        #output {
+            margin-top: 15px;
+            border: 5px double rgb(170, 137, 251);
+            border-radius: 20px;
+            width: 300px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            display: none;
+        }
+    </style>
+    <script>
+        function showSum() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+            let inputC = document.getElementById('numberC');
+            let inputD = document.getElementById('numberD');
+            let inputE = document.getElementById('numberE');
+
+            let a = parseInt(inputA.value) || 0;    /*если пользователь ничего не ввел, то автоматом ставится 0*/
+            let b = parseInt(inputB.value) || 0;
+            let c = parseInt(inputC.value) || 0;
+            let d = parseInt(inputD.value) || 0;
+            let e = parseInt(inputE.value) || 0;
+
+            let result = (120 * a) + (70 * b) + (162 * c) + (325 * d) + (280 * e);
+            let output = document.getElementById('output');
+            output.innerHTML = 'Общая сумма: ' + result + ' руб.';
+            output.style.display = 'block';
+        }
+
+        function clearAll() {
+            document.getElementById('numberA').value = '';
+            document.getElementById('numberB').value = '';
+            document.getElementById('numberC').value = '';
+            document.getElementById('numberD').value = '';
+            document.getElementById('numberE').value = '';
+            let output = document.getElementById('output');
+            output.innerHTML = '';
+            output.style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <div class="krasota">
+            <h1>Корзина товаров</h1>
+
+            <div>Яблоки (120р/шт):</div>
+            <input type="number" min="0" placeholder="Яблочки будете?" id="numberA">
+
+            <div>Груши (70р/шт):</div>
+            <input type="number" min="0" placeholder="А грушки будете?" id="numberB">
+
+            <div>Апельсины (162р/шт):</div>
+            <input type="number" min="0" placeholder="Апельсинок скок нада?" id="numberC">
+
+            <div>Дыни (325р/шт):</div>
+            <input type="number" min="0" placeholder="А дыньке вкусную?" id="numberD">
+
+            <div>Манго (280р/шт):</div>
+            <input type="number" min="0" placeholder="Количество" id="numberE">
+
+            <div>
+                <input type="button" value="Рассчитать" onclick="showSum()">
+                <input type="button" value="Очистить" onclick="clearAll()">
+            </div>
+
+            <div id="output"></div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Федотова Юлия, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
