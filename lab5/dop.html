@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Федотова Юлия Сергеевна. Картинка</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .image-block {
+            position: relative;
+            display: inline-block;
+            margin-top: 10px;
+            max-width: 70%;
+        }
+
+        #filterImage {
+            max-width: 70%;
+            display: block;
+        }
+
+        .info {
+            margin-top: 20px;
+            padding: 10px;
+            width: 200px;
+            background-color: rgb(240, 255, 139);
+            border: 4px double rgba(221, 255, 0, 0.83);
+            border-radius: 20px;
+        }
+
+        .polz {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: rgb(239, 250, 90);
+            border-radius: 20px;
+            border: 5px double rgba(221, 255, 0, 0.83);
+            line-height: 24px;
+            text-align: left;
+        }
+        h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <div class="polz">
+            <h3>Как пользоваться?</h3>
+            <ul>    
+                <li>При наведении курсора на изображение, применяется фильтр blur. А чем правее курсор, тем сильнее будет эффект!</li>
+                <li><b>Ctrl</b> - фильтр grayscale</li>
+                <li><b>Alt</b> - фильтр hue-rotate</li>
+                <li><b>Shift</b> - фильтр brightness</li>
+            </ul>
+        </div>
+
+        <div class="image-block">
+            <img src="Warnemünde_(10564867105).jpg" id="filterImage">
+            <div class="info">
+                Фильтр: <span id="filterName">none</span> (<span id="filterValue">0</span>)
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Федотова Юлия, ФБИ-31, 2 курс, 2025
+    </footer>
+
+    <script>
+        let image = document.getElementById("filterImage");
+        let filterName = document.getElementById("filterName");
+        let filterValue = document.getElementById("filterValue");
+
+        image.onmousemove = function(event) {
+            let x = event.offsetX;
+            let width = image.clientWidth;
+            let percent = x / width;
+
+            let name = "";
+            let value = "";
+            let filter = "";
+
+            if (event.ctrlKey) {
+                value = Math.round(percent * 100);
+                filter = "grayscale(" + value + "%)";
+                name = "grayscale";
+            } else if (event.altKey) {
+                value = Math.round(percent * 360);
+                filter = "hue-rotate(" + value + "deg)";
+                name = "hue-rotate";
+            } else if (event.shiftKey) {
+                value = Math.round(100 + percent * 200);
+                filter = "brightness(" + value + "%)";
+                name = "brightness";
+            } else {
+                value = (percent * 20).toFixed(1);
+                filter = "blur(" + value + "px)";
+                name = "blur";
+            }
+
+            image.style.filter = filter;
+            filterName.innerHTML = name;
+            filterValue.innerHTML = value;
+        };
+
+        image.onmouseleave = function() {
+            image.style.filter = "none";
+            filterName.innerHTML = "none";
+            filterValue.innerHTML = "0";
+        };
+    </script>
+</body>
+</html>
