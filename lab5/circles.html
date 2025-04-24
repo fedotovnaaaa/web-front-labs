@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Федотова Юлия Сергеевна. Круги</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            line-height: 80px;
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.7s ease;
+        }
+
+        /* Примеры разных цветов и позиций */
+        #c1 { background-color: limegreen; top: 500px; left: 20px; }
+        #c2 { background-color: rgb(179, 206, 0); top: 300px; left: 50px; }
+        #c3 { background-color: salmon; top: 160px; left: 250px; }
+        #c4 { background-color: rgb(168, 167, 167); top: 260px; left: 300px; }
+        #c5 { background-color: rosybrown; top: 400px; left: 350px; }
+        #c6 { background-color: rgb(240, 101, 101); top: 180px; left: 370px; }
+        #c7 { background-color: coral; top: 520px; left: 150px; }
+        #c8 { background-color: teal; top: 200px; left: 500px; }
+        #c9 { background-color: dodgerblue; top: 250px; left: 180px; }
+        #c10 { background-color: rgb(255, 255, 79); color: rgb(131, 151, 0); top: 55px; left: 350px; }
+
+        .reset-btn {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgb(179, 203, 251);
+            border: 5px double rgb(0, 105, 128);
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        function HideСircle(element) {
+            element.style.transform = 'scale(0)';
+            element.style.opacity = '0';
+        }
+        function resetCircles() {
+            /*метод, который ищет все элементы, соответствующие CSS-селектору*/
+            document.querySelectorAll('.circle').forEach(circle => {    /*метод для перебора всех элементов коллекции*/
+                circle.style.transform = 'scale(1)';    /*Возвращает масштаб*/
+                circle.style.opacity = '1';
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <div id="c1" class="circle" onclick="HideСircle(this)">1</div>
+        <div id="c2" class="circle" onclick="HideСircle(this)">2</div>
+        <div id="c3" class="circle" onclick="HideСircle(this)">3</div>
+        <div id="c4" class="circle" onclick="HideСircle(this)">4</div>
+        <div id="c5" class="circle" onclick="HideСircle(this)">5</div>
+        <div id="c6" class="circle" onclick="HideСircle(this)">6</div>
+        <div id="c7" class="circle" onclick="HideСircle(this)">7</div>
+        <div id="c8" class="circle" onclick="HideСircle(this)">8</div>
+        <div id="c9" class="circle" onclick="HideСircle(this)">9</div>
+        <div id="c10" class="circle" onclick="HideСircle(this)">10</div>
+
+        <button class="reset-btn" onclick="resetCircles()">Вернуть круги</button>
+    </main>
+
+    <footer>
+        &copy; Федотова Юлия, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
