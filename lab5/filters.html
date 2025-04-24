@@ -37,6 +37,11 @@
             document.getElementById('invertOutput').innerText = value;
             document.getElementById('blurImage').style.filter = 'invert(' + value + ')';
         }
+        function hueRotateChange() {
+            let value = document.getElementById('hueRotateValue').value + '°';
+            document.getElementById('hueRotateOutput').innerText = value;
+            document.getElementById('blurImage').style.filter = 'hue-rotate(' + value + ')';
+        }
     </script>
 </head>
 
@@ -70,6 +75,11 @@
             Фильтр invert:
             <input type="range" min="0" max="100" value="0" onchange="invertChange()" id="invertValue">
             <span id="invertOutput"></span>
+        </div>
+        <div>
+            Фильтр hue-rotate:
+            <input type="range" min="0" max="360" value="0" onchange="hueRotateChange()" id="hueRotateValue">
+            <span id="hueRotateOutput"></span>
         </div>
         <div><img src="Warnemünde_(10564867105).jpg" id="blurImage"></div>
     </main>
