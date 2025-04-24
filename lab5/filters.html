@@ -22,6 +22,11 @@
             document.getElementById('brightnessOutput').innerText = value;
             document.getElementById('blurImage').style.filter = 'brightness(' + value + ')';
         }
+        function contrastChange() {
+            let value = document.getElementById('contrastValue').value + '%';
+            document.getElementById('contrastOutput').innerText = value;
+            document.getElementById('blurImage').style.filter = 'contrast(' + value + ')';
+        }
     </script>
 </head>
 
@@ -40,6 +45,11 @@
             Фильтр brightness:
             <input type="range" min="0" max="500" value="100" onchange="brightnessChange()" id="brightnessValue">
             <span id="brightnessOutput"></span>
+        </div>
+        <div>
+            Фильтр contrast:
+            <input type="range" min="0" max="500" value="100" onchange="contrastChange()" id="contrastValue">
+            <span id="contrastOutput"></span>
         </div>
         <div><img src="Warnemünde_(10564867105).jpg" id="blurImage"></div>
     </main>
