@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Федотова Юлия Сергеевна. Диаграмма</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">  
+    <script>
+        function showDiagram() {
+            let data = [56, 25, 63, 45, 14, 78, 105, 23, 37, 70];
+            let colors = ['GreenYellow', 'LawnGreen', 'LimeGreen', 'PaleGreen', 'SpringGreen', 'MediumSeaGreen', 'SeaGreen', 'ForestGreen', 'YellowGreen', 'OliveDrab'];
+            let bars = document.getElementsByClassName('bar');
+            const diagHeight = document.getElementById('diag').clientHeight;
+            const maxData = Math.max(...data);
+            const k = diagHeight / maxData * 0.9;
+            for(let i = 0; i < data.length; i++) {
+                bars[i].style.height = k*data[i] + 'px';
+                bars[i].style.backgroundColor = colors[i];
+                bars[i].innerHTML = data[i];
+            }
+        }
+    </script>
+    <style>
+        .bar {
+            width: 42px;
+            margin-right: 7px;
+            height: 0;
+            display: inline-block;
+            vertical-align: bottom;
+            background-color: palevioletred;
+            text-align: center;
+            color: rgb(50, 79, 19);
+            font-weight: bold;
+            transition: height 0.5s;
+        }
+        #diag {
+            background-color: aliceblue;
+            padding: 20px;
+            height: 500px;
+            width: 500px;
+            display: flex;
+            align-items: flex-end;
+        }
+    </style>  
+</head>
+
+<body onload="showDiagram()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <div id="diag">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Федотова Юлия, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
