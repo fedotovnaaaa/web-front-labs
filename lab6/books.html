@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Федотова Юлия Сергеевна. Список книг</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">  
+    <script src="books.js"></script>
+    <script>
+        function showBooks() {
+            const bookList = document.getElementById('bookList');
+            for(let i = 0; i < books.length; i++) {
+                const inStock = books[i].inStock !== false; // true по умолчанию
+                bookList.innerHTML += `
+                    <div class="book ${inStock ? '' : 'out-of-stock'}">
+                        <b>${books[i].author}.</b>
+                        <i>${books[i].name}.</i>
+                        ${books[i].bestseller ? '<sup class="bestseller">bestseller</sup>' : ''}<br>
+                        &mdash; ${books[i].publicationYear}<br>
+                        &rarr; Цена: <i>${books[i].price}₽</i><br>
+                        <span class="stock-status ${inStock ? 'in-stock' : 'out-of-stock'}">
+                            ${inStock ? '✓ В наличии' : '✗ Нет в наличии'}
+                        </span>
+                    </div>
+                `;
+            }
+        }
+    </script>
+    <style>
+        .book {
+            padding: 10px;
+            margin: 10px 0;
+            line-height: 26px;
+            color: MediumSlateBlue;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s;
+        }
+        #bookList {
+            border: 3px double palevioletred;
+            border-radius: 20px;
+            background-color: aliceblue;
+            width: 400px;
+            padding: 15px;
+        }
+        .bestseller {
+            color: crimson;
+            font-weight: bold;
+        }
+        .out-of-stock {
+            opacity: 0.6;
+            color: #666;
+        }
+        .stock-status {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        .in-stock {
+            background-color: #e6ffe6;
+            color: #2e8b57;
+            border: 1px solid #2e8b57;
+        }
+        .out-of-stock {
+            background-color: #ffe6e6;
+            color: #dc143c;
+            border: 1px solid #dc143c;
+        }
+    </style>
+</head>
+
+<body onload="showBooks()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <h1>Список книг</h1>
+        <div id="bookList"></div>
+    </main>
+
+    <footer>
+        &copy; Федотова Юлия, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
