@@ -23,6 +23,7 @@
 
             `;
         }
+        
         function changeColors() {
             const header = document.getElementsByTagName('header')[0];
             const rgb = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
@@ -31,6 +32,7 @@
         }
 
         let timerNum;
+        let dateTimer;
 
         function startChangeColors() {
             changeColors();
@@ -43,6 +45,19 @@
             clearInterval(timerNum);
             document.getElementById('start-btn').disabled = false;
             document.getElementById('stop-btn').disabled = true;
+        }
+
+        function startChangeDate() {
+            showDate(); // немедленное обновление
+            dateTimer = setInterval(showDate, 1000);
+            document.getElementById('start-date').disabled = true;
+            document.getElementById('stop-date').disabled = false;
+        }
+
+        function stopChangeDate() {
+            clearInterval(dateTimer);
+            document.getElementById('start-date').disabled = false;
+            document.getElementById('stop-date').disabled = true;
         }
     </script>
     <style>
@@ -70,6 +85,11 @@
         <div>
             <button onclick="startChangeColors()" id="start-btn">Старт</button>
             <button onclick="stopChangeColors()" disabled id="stop-btn">Стоп</button>
+        </div>
+
+        <div>
+            <button onclick="startChangeDate()" id="start-date">Обновлять время</button>
+            <button onclick="stopChangeDate()" disabled id="stop-date">Остановить обновление времени</button>
         </div>
     </main>
 
