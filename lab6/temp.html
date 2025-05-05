@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Федотова Юлия Сергеевна. Температура</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">  
+  <style>
+    #diag {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      height: 200px;
+      width: 810px;
+      background-color: aliceblue;
+      padding: 10px;
+      padding-bottom: 20px;
+      gap: 7px;
+    }
+
+    .bar {
+      width: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+    }
+
+    .min-segment {
+      background-color: rgb(143, 82, 153);
+    }
+
+    .range-segment {
+      background-color: rgb(255, 112, 217);
+    }
+
+    .highlighted .min-segment,
+    .highlighted .range-segment {
+      background-color: rgb(122, 55, 163) !important;
+    }
+
+    .label {
+      position: absolute;
+      font-size: 10px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .label.min {
+      bottom: -15px;
+    }
+
+    .label.max {
+      top: -15px;
+    }
+
+    #info {
+      margin-top: 10px;
+      font-weight: bold;
+      color: darkred;
+    }
+
+    input {
+      margin-top: 10px;
+    }
+  </style>
+
+  <script>
+    let temperatures = [];
+    let selectedBar = null;
+
+    function generateDiagram() {
+      const diag = document.getElementById("diag");
+      diag.innerHTML = "";
+      temperatures = [];
+
+      for (let i = 0; i < 30; i++) {
+        let min = Math.floor(Math.random() * 11) + 5; // 5–15
+        let max = Math.floor(Math.random() * 16) + 25; // 25–40
+        if (min > max) [min, max] = [max, min];
+
+        temperatures.push({ min, max });
+
+        const bar = document.createElement("div");
+        bar.className = "bar";
+        bar.dataset.index = i;
+
+        const minHeight = min * 3;
+        const rangeHeight = (max - min) * 3;
+
+        const maxLabel = document.createElement("div");
+        maxLabel.className = "label max";
+        maxLabel.innerText = max + "°C";
+
+        const minLabel = document.createElement("div");
+        minLabel.className = "label min";
+        minLabel.innerText = min + "°C";
+
+        const rangeDiv = document.createElement("div");
+        rangeDiv.className = "range-segment";
+        rangeDiv.style.height = rangeHeight + "px";
+
+        const minDiv = document.createElement("div");
+        minDiv.className = "min-segment";
+        minDiv.style.height = minHeight + "px";
+
+        bar.appendChild(maxLabel);
+        bar.appendChild(rangeDiv);
+        bar.appendChild(minDiv);
+        bar.appendChild(minLabel);
+        diag.appendChild(bar);
+      }
+    }
+
+    function highlightDay(day) {
+      const index = parseInt(day) - 1;
+      if (isNaN(index) || index < 0 || index >= 30) {
+        document.getElementById("info").innerText = '';
+        if (selectedBar) selectedBar.classList.remove("highlighted");
+        return;
+      }
+
+      const bars = document.getElementsByClassName("bar");
+
+      if (selectedBar) {
+        selectedBar.classList.remove("highlighted");
+      }
+
+      selectedBar = bars[index];
+      selectedBar.classList.add("highlighted");
+
+      const temp = temperatures[index];
+      document.getElementById("info").innerText = `День ${day}: мин температура = ${temp.min}°C, макс температура = ${temp.max}°C`;
+    }
+
+    window.onload = generateDiagram;
+  </script>
+</head>
+
+<body>
+  <header>НГТУ, ФБ, Лабораторная работа 6</header>
+
+  <main>
+    <div id="diag"></div>
+
+    <div>
+      <label for="day-input">Введите номер дня (1–30): </label>
+      <input type="number" id="day-input" min="1" max="30" oninput="highlightDay(this.value)">
+    </div>
+
+    <div id="info"></div>
+  </main>
+
+  <footer>
+    &copy; Федотова Юлия, ФБИ-31, 2 курс, 2025
+  </footer>
+</body>
+</html>
