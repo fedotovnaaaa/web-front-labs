@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Федотова Юлия Сергеевна. Котировки акций банка "Санкт-Петербург"</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png"> 
+    <script src="company-data.js"></script>
+    <style>
+        .positive {
+            color: green;
+        }
+        .negative {
+            color: red;
+        }
+        .neutral {
+            color: black;
+        }
+    </style>
+    <script>
+        function showKursXXX() {
+            let table = document.getElementById('kurs-table');
+            table.innerHTML = "";
+
+            // Заголовок
+            let header = document.createElement('tr');
+            ["Дата", "Цена акций", "Разница"].forEach(text => {
+                let th = document.createElement('th');
+                th.innerText = text;
+                header.appendChild(th);
+            });
+            table.appendChild(header);
+
+            for (let i = 0; i < kurs.length; i++) {
+                let tr = document.createElement('tr');
+
+                // Дата
+                let tdDate = document.createElement('td');
+                tdDate.innerText = date[i];
+                tr.appendChild(tdDate);
+
+                // Цена
+                let tdPrice = document.createElement('td');
+                tdPrice.innerText = kurs[i];
+                tr.appendChild(tdPrice);
+
+                // Разница
+                let tdDiff = document.createElement('td');
+                if (i === 0) {
+                    tdDiff.innerText = "-";
+                    tdDiff.className = "neutral";
+                } else {
+                    let diff = (kurs[i] - kurs[i - 1]).toFixed(2);
+                    tdDiff.innerText = diff > 0 ? "+" + diff : diff;
+
+                    if (diff > 0) tdDiff.className = "positive";
+                    else if (diff < 0) tdDiff.className = "negative";
+                    else tdDiff.className = "neutral";
+                }
+                tr.appendChild(tdDiff);
+
+                table.appendChild(tr);
+            }
+
+            // Расчёт статистики
+            let sum = kurs.reduce((a, b) => a + b, 0);
+            let avg = (sum / kurs.length).toFixed(2);
+            let max = Math.max(...kurs);
+            let min = Math.min(...kurs);
+
+            let detail = document.getElementById('detail');
+            detail.innerHTML = `
+                <p>Средняя стоимость акции: <strong>${avg}</strong></p>
+                <p>Максимальная стоимость акции: <strong>${max}</strong></p>
+                <p>Минимальная стоимость акции: <strong>${min}</strong></p>
+            `;
+
+            document.getElementById('btn-xxx').style.display = 'none';
+        }
+    </script> 
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button id="btn-xxx" onclick="showKursXXX()">Курс акций банка "Санкт-Петербург"</button>
+        <table border="1" id="kurs-table"></table>
+        <div id="detail"></div>
+    </main>
+
+    <footer>
+        &copy; Федотова Юлия, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
