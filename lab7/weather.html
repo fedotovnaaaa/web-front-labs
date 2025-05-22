@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Федотова Юлия Сергеевна. Прогноз погоды</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon-16x16.png">
+    <link rel="icon" href="../images/favicon-32x32.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function getWeather() {
+            const url = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok';
+
+            fetch(url)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    const times = data.hourly.time;
+                    const temps = data.hourly.temperature_2m;
+                    const targetHours = ['08:00', '12:00', '20:00'];
+
+                    let output = ' ';
+
+                    for (let i = 0; i < targetHours.length; i++) {
+                        const hour = targetHours[i];
+                        const index = times.findIndex(function(t) {
+                            return t.includes(`T${hour}`);
+                        });
+
+                        if (index !== -1) {
+                            const date = new Date(times[index]).toLocaleTimeString('ru-RU', {
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            });
+
+                            output += `
+                                <div class="weather-time">
+                                    <b>${date}:</b> ${temps[index]}°C
+                                </div>
+                            `;
+                        }
+                    }
+
+                    let weatherResult = document.getElementById('weatherResult');
+
+                    weatherResult.innerHTML = `
+                        <h2 class="weather-title">Погода в Новосибирске сегодня:</h2>
+                        ${output}
+                    `;
+                    weatherResult.style.display = 'block';
+
+                    // Построение графика
+                    const chartLabels = [];
+                    const chartData = [];
+
+                    for (let i = 0; i < times.length; i++) {
+                        const time = new Date(times[i]);
+                        if (time.getHours() >= 6 && time.getHours() <= 23) {
+                            const label = time.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' }) + ' ' +
+                                        time.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+                            chartLabels.push(label);
+                            chartData.push(temps[i]);
+                        }
+                    }
+
+                    const ctx = document.getElementById('weatherChart').getContext('2d');
+                    if (window.weatherChartInstance) {
+                        window.weatherChartInstance.destroy();
+                    }
+                    window.weatherChartInstance = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: chartLabels,
+                            datasets: [{
+                                label: 'Температура (°C)',
+                                data: chartData,
+                                backgroundColor: function(context) {
+                                    const index = context.dataIndex;
+                                    const hovered = context.chart.getActiveElements().some(el => el.index === index);
+                                    return hovered ? '#c54a80' : '#e49b0f';
+                                },
+                                borderRadius: 5
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                tooltip: {
+                                    enabled: true
+                                },
+                                legend: {
+                                    display: false
+                                }
+                            },
+                            onHover: (event, chartElement) => {
+                                event.native.target.style.cursor = chartElement.length ? 'pointer' : 'default';
+                            },
+                            animation: {
+                                duration: 500
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Температура (°C)'
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Время'
+                                    }
+                                }
+                            }
+                        }
+                    });
+
+                    document.getElementById('weatherChart').style.display = 'block';
+                });
+        }
+    </script>
+    <style>
+        button {
+            background-color: #8d0b34;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.5s;
+        }
+
+        button:hover {
+            background-color: #db3460;
+        }
+
+        .weather-result {
+            display: none;
+            border: 5px double #f84e8f;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+            background-color: #fffadf;
+        }
+
+        .weather-title {
+            color: #8d0b34;
+        }
+
+        #weatherChart {
+            margin-top: 20px;
+            display: none;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="getWeather()">Показать температуру</button>
+        <div id="weatherResult" class="weather-result"></div>
+        <canvas id="weatherChart" width="400" height="200"></canvas>
+    </main>
+
+    <footer>
+        &copy; Федотова Юлия, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
