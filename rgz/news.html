@@ -1,0 +1,348 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РГЗ. "УК Смарт" — Новости</title>
+    <link rel="stylesheet" href="style-2.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png"> 
+    <style>
+        main {
+            padding-top: 240px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .news {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-card {
+            background-color: white;
+            border: 1px solid rgb(86, 137, 184);
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.458);
+        }
+
+        .news-date {
+            font-size: 0.9em;
+            color: rgb(69, 106, 143);
+        }
+
+        .news-title {
+            font-weight: bold;
+            margin: 10px 0;
+            color: rgb(27, 105, 150);
+        }
+
+        .news-short {
+            margin-bottom: 10px;
+        }
+
+        .news-full {
+            display: none;
+            font-size: 0.95em;
+            color: rgb(70, 121, 188);
+        }
+
+        .show-btn {
+            background-color: rgb(66, 145, 162);
+            color: white;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        #header-table {
+            width: 95%;
+            margin: auto;
+            padding: 10px 0;
+            transition: width 0.3s ease;
+        }
+
+        #header-logo {
+            transition: height 0.3s ease;
+        }
+
+        #text {
+            transition: font-size 0.3s ease;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const text = document.getElementById('text');
+            const backToTopBtn = document.querySelector('.back-to-top');
+            const header = document.querySelector('header');
+            const headerLogo = document.getElementById('header-logo');
+            const headerTable = document.getElementById('header-table');
+
+            const baseFontSize = 40;
+            const baseLogoHeight = 100;
+            const baseWidth = 95;
+
+            window.addEventListener('scroll', function () {
+                const scrollTop = window.scrollY;
+
+                const newFontSize = Math.max(20, baseFontSize - scrollTop / 20);
+                text.style.fontSize = newFontSize + 'px';
+
+                const newLogoHeight = Math.max(50, baseLogoHeight - scrollTop / 10);
+                headerLogo.style.height = newLogoHeight + 'px';
+
+                const newWidth = Math.max(85, baseWidth - scrollTop / 20);
+                headerTable.style.width = newWidth + '%';
+
+                backToTopBtn.style.opacity = scrollTop > 300 ? '1' : '0';
+                backToTopBtn.style.pointerEvents = scrollTop > 300 ? 'auto' : 'none';
+
+                header.style.backgroundColor = scrollTop > 50 ? 'rgba(57, 57, 57, 0.9)' : 'transparent';
+            });
+
+            backToTopBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        function toggleFullText(button) {
+            const fullText = button.previousElementSibling;
+            if (fullText.style.display === "none" || fullText.style.display === "") {
+                fullText.style.display = "block";
+                button.textContent = "Скрыть";
+            } else {
+                fullText.style.display = "none";
+                button.textContent = "Показать";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <table id="header-table">
+            <tr>
+                <td style="width: 20%; text-align: right;">
+                    <img src="3994332.png" height="100" id="header-logo">
+                </td>
+                <td style="width: 75%; text-align: right;">
+                    <h1 id="text">ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «УПРАВЛЯЮЩАЯ КОМПАНИЯ «СМАРТ»</h1>
+                </td>
+            </tr>
+        </table>
+        <nav>
+            <a href="index.html">О компании</a>
+            <a href="news.html" class="active">Новости</a>
+            <a href="currency.html">Курс валют</a>
+            <a href="contacts.html">Контактные данные</a>
+            <a href="video.html">Видео</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Новости</h1>
+        <div class="news">
+            <div class="news-card">
+            <div class="news-date">28 апреля 2025</div>
+            <div class="news-title">Сообщение о созыве общего собрания владельцев ипотечных сертификатов участия «ИСУ ГК-3»</div>
+            <div class="news-short">Наименование Дата размещения Действует по Сообщение о созыве общего собрания владельцев ипотечных сертификатов участия «ИСУ ГК-3». 28.04.2025 настоящее время</div>
+            <div class="news-full">
+                <table border="1" style="color: 1px solid #430067; text-align: left;" width="80%">
+                    <tr style="font-weight: bold;">
+                        <td>Наименование</td>
+                        <td>Дата размещения</td>
+                        <td>Действует по</td>
+                    </tr>
+                    <tr>
+                        <td><span title="https://smartpif.ru/wp-content/uploads/2025/04/Soob-soziv-os.pdf">
+                            <a href="https://smartpif.ru/wp-content/uploads/2025/04/Soob-soziv-os.pdf">
+                                Сообщение о созыве общего собрания владельцев ипотечных сертификатов участия «ИСУ ГК-3».</a></span> 
+                        </td>
+                        <td>28.04.2025</td>
+                        <td>настоящее время</td>
+                    </tr>
+                </table>
+            </div>
+            <button class="show-btn" onclick="toggleFullText(this)">Показать</button>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">18 февраля 2025</div>
+                <div class="news-title">Годовая бухгалтерская (финансовая) отчетность за предыдущий период</div>
+                <div class="news-short">Промежуточная бухгалтерская (финансовая) отчетность Дата размещения Информацию за последний год можно посмотреть здесь.</div>
+                <div class="news-full">
+                    Годовая бухгалтерская (финансовая) отчетность за 2022 год 02.03.2023. 
+                    Аудиторское заключение о бухгалтерской (финансовой) отчетности за 2022 год 02.03.2023. 
+                    Годовая бухгалтерская (финансовая) отчетность за 2021 год 30.03.2022. 
+                    Аудиторское заключение о бухгалтерской (финансовой) отчетности за 2021 год 28.03.2022. 
+                    Аудиторское заключение о бухгалтерской (финансовой) отчетности<br>
+                    
+                    <table border="1" style="color: 1px solid #430067; text-align: left;" width="80%">
+                        <tr style="font-weight: bold;">
+                            <td>Годовая бухгалтерская (финансовая) отчетность</td>
+                            <td>Дата размещения</td>
+                        </tr>
+                        <tr>
+                            <td><span title="https://smartpif.ru/wp-content/uploads/2023/03/Финансовая-отчётность-за-2022.pdf">
+                                <a href="https://smartpif.ru/wp-content/uploads/2023/03/Финансовая-отчётность-за-2022.pdf">
+                                    Годовая бухгалтерская (финансовая) отчетность за 2022 год</a></span> 
+                            </td>
+                            <td>02.03.2023</td>
+                        </tr>
+                        <tr>
+                            <td><span title="https://smartpif.ru/wp-content/uploads/2023/03/Аудиторское-заключение-за-2022-г.-ОСБУ.pdf">
+                                <a href="https://smartpif.ru/wp-content/uploads/2023/03/Аудиторское-заключение-за-2022-г.-ОСБУ.pdf">
+                                    Аудиторское заключение о бухгалтерской (финансовой) отчетности за 2022 год</a></span> 
+                            </td>
+                            <td>02.03.2023</td>
+                        </tr>
+                        <tr>
+                            <td><span title="https://smartpif.ru/assets/storage/15/fin-otchet-2021.pdf">
+                                <a href="https://smartpif.ru/assets/storage/15/fin-otchet-2021.pdf">
+                                    Годовая бухгалтерская (финансовая) отчетность за 2021 год</a></span> 
+                            </td>
+                            <td>30.03.2022</td>
+                        </tr>
+                        <tr>
+                            <td><span title="https://smartpif.ru/assets/storage/5/a3_ca_2021_compressed.pdf">
+                                <a href="https://smartpif.ru/assets/storage/5/a3_ca_2021_compressed.pdf">
+                                    Аудиторское заключение о бухгалтерской (финансовой) отчетности за 2021 год</a></span> 
+                            </td>
+                            <td>28.03.2022</td>
+                        </tr>
+                        <tr>
+                            <td><span title="https://smartpif.ru/assets/storage/5/a3_ca_2020_compressed.pdf">
+                                <a href="https://smartpif.ru/assets/storage/5/a3_ca_2020_compressed.pdf">
+                                    Аудиторское заключение о бухгалтерской (финансовой) отчетности за 2020 год</a></span> 
+                            </td>
+                            <td>30.03.2021</td>
+                        </tr>
+                        <tr>
+                            <td><span title="https://smartpif.ru/assets/storage/15/fin-otchet-2020.pdf">
+                                <a href="https://smartpif.ru/assets/storage/15/fin-otchet-2020.pdf">
+                                    Годовая бухгалтерская (финансовая) отчетность за 2020 год</a></span> 
+                            </td>
+                            <td>30.03.2021</td>
+                        </tr>
+                        <tr>
+                            <td><span title="https://smartpif.ru/assets/storage/15/auditorskoe-zakluchenie-2019.pdf">
+                                <a href="https://smartpif.ru/assets/storage/15/auditorskoe-zakluchenie-2019.pdf">
+                                    Аудиторское заключение о бухгалтерской (финансовой) отчетности за 2019 год</a></span> 
+                            </td>
+                            <td>30.03.2020</td>
+                        </tr>
+                        <tr>
+                            <td><span title="https://smartpif.ru/assets/storage/15/buh-otchet-2019.pdf">
+                                <a href="https://smartpif.ru/assets/storage/15/buh-otchet-2019.pdf">
+                                    Годовая бухгалтерская (финансовая) отчетность за 2019 год</a></span> 
+                            </td>
+                            <td>30.01.2020</td>
+                        </tr>
+                    </table>
+                </div>
+                <button class="show-btn" onclick="toggleFullText(this)">Показать</button>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">9 ноября 2023</div>
+                <div class="news-title">Об изменении фамилии Генерального директора управляющей компании</div>
+                <div class="news-short">«08» ноября 2023 года в Единый государственный реестр юридических лиц внесена запись за государственным регистрационным номером</div>
+                <div class="news-full">(ГРН) 2237710777599 о государственной регистрации изменении, 
+                    связанных со сменой фамилии Генерального директора Общества с ограниченной 
+                    ответственностью «Управляющая компания «СМАРТ» на: Муравьеву Нину Сергеевну.</div>
+                <button class="show-btn" onclick="toggleFullText(this)">Показать</button>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">7 июля 2023</div>
+                <div class="news-title">Об изменении адреса (места нахождения) ООО «УК «СМАРТ»</div>
+                <div class="news-short">«05» июля 2023 года в Единый государственный реестр юридических лиц внесена запись за государственным регистрационным номером </div>
+                <div class="news-full">(ГРН) 2237706116063 о государственной регистрации изменения адреса 
+                    (места нахождения) Общества с ограниченной ответственностью «Управляющая компания 
+                    «СМАРТ» на: 121087, город Москва, вн. тер. г. муниципальный округ Филевский 
+                    парк, ул. Барклая, д. 6, стр. 5, помещ. 23Д/6.</div>
+                <button class="show-btn" onclick="toggleFullText(this)">Показать</button>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-date">21 октября 2021</div>
+                <div class="news-title">О режиме работы Управляющей компании в период с 28 по 29 октября 2021 года и с 01 по 03 ноября 2021 года</div>
+                <div class="news-short">Общество с ограниченной ответственностью «Управляющая компания «СМАРТ» уведомляет, что в период с 28 по 29 октября 2021 года</div>
+                <div class="news-full">и с 01 по 03 ноября 2021 г: офис Управляющей компании будет работать с 10.00 до 19.00 по московскому времени с перерывам на обед с 13:00 по 14:00 по московскому времени.</div>
+                <button class="show-btn" onclick="toggleFullText(this)">Показать</button>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-date">27 апреля 2021</div>
+                <div class="news-title">О режиме работы Управляющей компании в период с 04 по 07 мая 2021 года</div>
+                <div class="news-short">ООО «УК «СМАРТ» уведомляет, что в период с 04 по 07 мая 2021 г:</div>
+                <div class="news-full">офис Управляющей компании будет работать с 10.00 до 19.00 по московскому времени с перерывам на обед с 13:00 по 14:00 по московскому времени</div>
+                <button class="show-btn" onclick="toggleFullText(this)">Показать</button>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-date">30 марта 2021</div>
+                <div class="news-title">Годовая бухгалтерская (финансовая) отчетность за 2020 год</div>
+                <div class="news-short">Годовая бухгалтерская (финансовая) отчетность за 2020 год</div>
+                <div class="news-full"><span title="https://smartpif.ru/assets/storage/15/fin-otchet-2020.pdf">
+                                <a href="https://smartpif.ru/assets/storage/15/fin-otchet-2020.pdf">
+                                    Годовая бухгалтерская (финансовая) отчетность за 2020 год</a></span></div>
+                <button class="show-btn" onclick="toggleFullText(this)">Показать</button>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-date">7 декабря 2020</div>
+                <div class="news-title">Годовая бухгалтерская (финансовая) отчетность за 2019 год</div>
+                <div class="news-short">Годовая бухгалтерская (финансовая) отчетность за 2019 год</div>
+                <div class="news-full"><span title="https://smartpif.ru/assets/storage/15/buh-otchet-2019.pdf">
+                                <a href="https://smartpif.ru/assets/storage/15/buh-otchet-2019.pdf">
+                                    Годовая бухгалтерская (финансовая) отчетность за 2019 год</a></span></div>
+                <button class="show-btn" onclick="toggleFullText(this)">Показать</button>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-date">25 августа 2020</div>
+                <div class="news-title">Сбой работы в телефонной линии</div>
+                <div class="news-short">В связи со сбоем оборудования и программного обеспечения на телефонной линии, который выражен в периодическом выключением стационарных телефонов</div>
+                <div class="news-full">ООО «УК «СМАРТ» сообщает о дополнительных телефонных номерах для связи с Обществом, которые будут выполнять роль резервных каналов связи вплоть до полного устранения неисправности: +7 (926) 722-7878</div>
+                <button class="show-btn" onclick="toggleFullText(this)">Показать</button>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-date">11 августа 2020</div>
+                <div class="news-title">Изменение адреса место нахождения и почтового адреса</div>
+                <div class="news-short">Общество с ограниченной ответственностью «Управляющая 
+                    компания «СМАРТ» (ООО «УК «СМАРТ») сообщает, что Единственным участником 
+                    Общества принято решение №16 от 07.08.2020 г. об изменении места нахождения 
+                    (юридического адреса) ООО «УК «СМАРТ».</div>
+                <div class="news-full"> Новый адрес место нахождения ООО «УК «СМАРТ»: 121087, Российская Федерация, город Москва, улица Барклая, дом 6, строение 5, комната 24л<br>
+                    ООО «УК «СМАРТ» также сообщает, что изменился почтовый адрес Общества. <br>
+                    Новый почтовый адрес ООО «УК «СМАРТ»: 121087, Российская Федерация, город Москва, улица Барклая, дом 6, строение 5, комната № 332 <br>
+                    Просим Вас при указании реквизитов ООО «УК «СМАРТ» учитывать изменения, указанные в настоящем сообщении. <br>
+                    По всем вопросам, связанным с необходимостью предоставления каких-либо документов, связанных с изменением место нахождения ООО «УК «СМАРТ», просим обращаться в ООО «УК «СМАРТ» по телефону: <br>
+                    +7 (499) 653-69-03.</div>
+                <button class="show-btn" onclick="toggleFullText(this)">Показать</button>
+            </div>
+        </div>
+    </main>
+
+    <a href="#" class="back-to-top" title="Наверх">↑</a>
+
+    <footer>
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            Общество с ограниченной ответственностью «Управляющая компания «СМАРТ». Тел. +7 (499) 653-69-03
+        </marquee>
+    </footer>
+</body>
+</html>

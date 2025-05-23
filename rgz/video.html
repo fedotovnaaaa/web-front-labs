@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РГЗ. "УК"Смарт" - Видео</title>
+    <link rel="stylesheet" href="style-2.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png"> 
+    <style>
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const text = document.getElementById('text');
+            const backToTopBtn = document.querySelector('.back-to-top');
+            const header = document.querySelector('header');
+            const headerLogo = document.getElementById('header-logo');
+            const headerTable = document.getElementById('header-table');
+
+            const baseFontSize = 40;
+            const baseLogoHeight = 100;
+            const baseWidth = 95; // в процентах
+
+            window.addEventListener('scroll', function () {
+                const scrollTop = window.scrollY;
+
+                // Изменение размера шрифта
+                const newFontSize = Math.max(20, baseFontSize - scrollTop / 20);
+                text.style.fontSize = newFontSize + 'px';
+
+                // Логотип уменьшается
+                const newLogoHeight = Math.max(50, baseLogoHeight - scrollTop / 10);
+                headerLogo.style.height = newLogoHeight + 'px';
+
+                // Ширина таблицы уменьшается
+                const newWidth = Math.max(85, baseWidth - scrollTop / 20); // минимум 85%
+                headerTable.style.width = newWidth + '%';
+
+                // Появление кнопки "наверх"
+                if (scrollTop > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.pointerEvents = 'auto';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.pointerEvents = 'none';
+                }
+
+                // Затемнение заголовка
+                if (scrollTop > 50) {
+                    header.style.backgroundColor = 'rgb(57, 57, 57, 0.9)';
+                } else {
+                    header.style.backgroundColor = 'transparent';
+                }
+            });
+
+            // Плавный скролл наверх
+            backToTopBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <table width="95%" id="header-table">
+            <tr>
+                <td style="width: 20%; text-align: right;">
+                    <img src="3994332.png" height="100" id="header-logo">
+                </td>
+                <td style="width: 75%; text-align: right;">
+                    <h1 id="text">ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «УПРАВЛЯЮЩАЯ КОМПАНИЯ «СМАРТ»</h1>
+                </td>
+            </tr>
+        </table>
+
+        <nav>
+            <a href="index.html" >О компании</a>
+            <a href="news.html">Новости</a>
+            <a href="currency.html">Курс валют</a>
+            <a href="contacts.html">Контактные данные</a>
+            <a href="video.html" class="active">Видео</a>
+        </nav>
+    </header>
+
+    <main>
+        <p>
+            <div><h3>
+                Ниже вы можете посмотреть видео о закрытый паевых инвестиционных фондах: что это, как работает, кому полезен. 
+            </h3></div>
+
+            <div>Подробные ответы на все вопросы от эксперта ↓↓↓</div>
+        </p>
+        <div>
+            <iframe width="720" height="405" src="https://rutube.ru/play/embed/2ea34e92e51ed1a0543328e26d8135ee/" frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        </div>
+    </main>
+
+    <a href="#" class="back-to-top" title="Наверх">↑</a>
+
+
+    <footer>
+        <marquee behavior=scroll direction="left" scrollamount="5">Общество с ограниченной ответственностью «Управляющая компания «СМАРТ». Тел. + 7 (499) 653-69-03</marquee>
+    </footer>
+</body>
+</html>

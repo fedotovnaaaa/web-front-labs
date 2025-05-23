@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РГЗ. "УК"Смарт" Контактные данные</title>
+    <link rel="stylesheet" href="style-2.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png"> 
+    <style>
+        sup {
+            color: #0257c6;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const text = document.getElementById('text');
+            const backToTopBtn = document.querySelector('.back-to-top');
+            const header = document.querySelector('header');
+            const headerLogo = document.getElementById('header-logo');
+            const headerTable = document.getElementById('header-table');
+
+            const baseFontSize = 40;
+            const baseLogoHeight = 100;
+            const baseWidth = 95; // в процентах
+
+            window.addEventListener('scroll', function () {
+                const scrollTop = window.scrollY;
+
+                // Изменение размера шрифта
+                const newFontSize = Math.max(20, baseFontSize - scrollTop / 20);
+                text.style.fontSize = newFontSize + 'px';
+
+                // Логотип уменьшается
+                const newLogoHeight = Math.max(50, baseLogoHeight - scrollTop / 10);
+                headerLogo.style.height = newLogoHeight + 'px';
+
+                // Ширина таблицы уменьшается
+                const newWidth = Math.max(85, baseWidth - scrollTop / 20); // минимум 85%
+                headerTable.style.width = newWidth + '%';
+
+                // Появление кнопки "наверх"
+                if (scrollTop > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.pointerEvents = 'auto';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.pointerEvents = 'none';
+                }
+
+                // Затемнение заголовка
+                if (scrollTop > 50) {
+                    header.style.backgroundColor = 'rgb(57, 57, 57, 0.97)';
+                } else {
+                    header.style.backgroundColor = 'transparent';
+                }
+            });
+
+            // Плавный скролл наверх
+            backToTopBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <table width="95%" id="header-table">
+            <tr>
+                <td style="width: 20%; text-align: right;">
+                    <img src="3994332.png" height="100" id="header-logo">
+                </td>
+                <td style="width: 75%; text-align: right;">
+                    <h1 id="text">ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «УПРАВЛЯЮЩАЯ КОМПАНИЯ «СМАРТ»</h1>
+                </td>
+            </tr>
+        </table>
+
+        <nav>
+            <a href="index.html" >О компании</a>
+            <a href="news.html">Новости</a>
+            <a href="currency.html">Курс валют</a>
+            <a href="contacts.html" class="active">Контактные данные</a>
+            <a href="video.html">Видео</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <p>
+                <b>Адрес:</b> 121087, город Москва, вн.тер.г. Муниципальный округ Филевский парк, улица Барклая, дом 6, строение 5, помещ. 23Д/6.
+            </p>
+
+            <p>
+                Вы всегда можете связаться с нами по телефону:<br/>
+                <b>+7 (499) 653-69-03</b><br/>
+                или по <b>email:</b><br/>
+                info@smartpif.ru
+            </p>
+
+            <p>
+                <b>Время работы:</b> понедельник — пятница c <i>10:00</i> до <i>19:00</i> по <u>московскому</u> времени
+            </p>
+
+            <p>
+                <b>Руководитель:</b> Муравьева Нина Сергеевна <sup>Генеральный директор</sup>
+            </p>
+        </section>
+        <iframe class="map" src="https://yandex.ru/map-widget/v1/?um=constructor%3A52ead759e82a0d0d22dc547dc40de39e37158ea2aaccc325e5472f74a8260598&amp;source=constructor" width="1000" height="400" frameborder="0"></iframe>
+        
+        <section>
+            <p>
+                <div><b>ИНН:</b> 7730245888</div>
+                <div><b>КПП:</b> 773001001</div>
+                <div><b>Уставной капитал:</b> 30 млн. руб.</div>
+                <div><b>Численность персонала:</b> 8</div>
+                <div><b>Количество учредителей:</b> 1</div>
+                <div><b>Дата регистрации:</b> 13.08.2018</div>
+                <div><b>Статус:</b> Действующее</div>
+            </p>
+        </section>
+    </main>
+
+    <a href="#" class="back-to-top" title="Наверх">↑</a>
+
+
+    <footer>
+        <marquee behavior=scroll direction="left" scrollamount="5">Общество с ограниченной ответственностью «Управляющая компания «СМАРТ». Тел. + 7 (499) 653-69-03</marquee>
+    </footer>
+</body>
+</html>
