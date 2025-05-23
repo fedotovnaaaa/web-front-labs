@@ -18,19 +18,19 @@
                     return response.json();
                 })
                 .then(function(data) {
-                    const times = data.hourly.time;
-                    const temps = data.hourly.temperature_2m;
-                    const targetHours = ['08:00', '12:00', '20:00'];
+                    const times = data.hourly.time;  // Массив временных меток
+                    const temps = data.hourly.temperature_2m;  // Массив температур
+                    const targetHours = ['08:00', '12:00', '20:00'];  // Часы, которые нас интересуют
 
                     let output = ' ';
 
                     for (let i = 0; i < targetHours.length; i++) {
                         const hour = targetHours[i];
-                        const index = times.findIndex(function(t) {
+                        const index = times.findIndex(function(t) {  // findIndex ищет индекс времени, содержащего нужный час
                             return t.includes(`T${hour}`);
                         });
 
-                        if (index !== -1) {
+                        if (index !== -1) {  // Если время найдено, создается строка с отформатированным временем и температурой
                             const date = new Date(times[index]).toLocaleTimeString('ru-RU', {
                                 hour: '2-digit',
                                 minute: '2-digit'
@@ -44,6 +44,7 @@
                         }
                     }
 
+                    // Вывод результата
                     let weatherResult = document.getElementById('weatherResult');
 
                     weatherResult.innerHTML = `
@@ -58,8 +59,8 @@
 
                     for (let i = 0; i < times.length; i++) {
                         const time = new Date(times[i]);
-                        if (time.getHours() >= 6 && time.getHours() <= 23) {
-                            const label = time.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' }) + ' ' +
+                        if (time.getHours() >= 6 && time.getHours() <= 23) {  // Фильтруем данные, оставляя только с 6:00 до 23:00
+                            const label = time.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' }) + ' ' +  // Форматирует дату и время для отображения на графике
                                         time.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
                             chartLabels.push(label);
                             chartData.push(temps[i]);
@@ -68,10 +69,10 @@
 
                     const ctx = document.getElementById('weatherChart').getContext('2d');
                     if (window.weatherChartInstance) {
-                        window.weatherChartInstance.destroy();
+                        window.weatherChartInstance.destroy();  // Форматирует дату и время для отображения на графике
                     }
-                    window.weatherChartInstance = new Chart(ctx, {
-                        type: 'bar',
+                    window.weatherChartInstance = new Chart(ctx, {  // window.weatherChartInstance используется для хранения экземпляра графика
+                        type: 'bar',  // Создает новый столбчатый график 
                         data: {
                             labels: chartLabels,
                             datasets: [{
