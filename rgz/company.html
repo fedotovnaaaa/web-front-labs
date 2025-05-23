@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РГЗ. "УК"Смарт" О компании</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png">
+    <link rel="icon" href="favicon-32x32.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        table {
+            text-align: right;
+        }
+
+        nav {
+            margin-top: 10px;
+            background-color: #4f477d;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background-color: #6f66a7;
+        }
+
+        nav a.active {
+            background-color: white;
+            box-shadow: 0 0 15px #430067;
+            color: #4f477d;
+        }
+
+        main {
+            margin-top: 210px;
+            padding: 20px;
+            width: 900px;
+            z-index: 1;
+            text-align: justify;
+        }
+
+        section {
+            margin-bottom: 40px;
+            z-index: 1;
+        }
+
+        p {
+            margin-bottom: 15px;
+            z-index: 1;
+        }
+
+        .sdvig {
+            position: relative;
+            left: 500px;
+            margin-top: 30px;
+            padding: 20px;
+            width: 900px;
+            z-index: 1;
+            text-align: justify;
+        }
+
+        .image {
+            position: absolute;
+            border: 3px solid #4f477d;
+            border-radius: 20px;
+            width: 450px;
+            top: 240px;
+            left: 950px;
+            transition: 2s;
+            z-index: 0;
+        }
+
+        .image:hover {
+            transition: 2s;
+            width: 470px;
+            box-shadow: 0 0 15px #430067;
+        }
+
+        .imageone {
+            position: absolute;
+            border: 3px solid #4f477d;
+            border-radius: 20px;
+            width: 455px;
+            top: 0px;
+            left: -500px;
+            transition: 2s;
+            z-index: 0;
+        }
+
+        .imageone:hover {
+            transition: 2s;
+            width: 470px;
+            box-shadow: 0 0 15px #430067;
+        }
+
+        .imagetwo {
+            position: relative;
+            border: 3px solid #4f477d;
+            border-radius: 20px;
+            width: 160%;
+            top: 0px;
+            transition: 2s;
+            z-index: 0;
+        }
+
+        .imagetwo:hover {
+            transition: 2s;
+            box-shadow: 0 0 15px #430067;
+        }
+
+        .imagethree {
+            position: absolute;
+            border: 3px solid #4f477d;
+            border-radius: 20px;
+            width: 450px;
+            top: 1900px;
+            left: 950px;
+            transition: 2s;
+            z-index: 0;
+        }
+
+        .imagethree:hover {
+            transition: 2s;
+            width: 470px;
+            box-shadow: 0 0 15px #430067;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const text = document.getElementById('text');
+            const backToTopBtn = document.querySelector('.back-to-top');
+            const header = document.querySelector('header');
+            const headerLogo = document.getElementById('header-logo');
+            const headerTable = document.getElementById('header-table');
+
+            const baseFontSize = 40;
+            const baseLogoHeight = 100;
+            const baseWidth = 95; // в процентах
+
+            window.addEventListener('scroll', function () {
+                const scrollTop = window.scrollY;
+
+                // Изменение размера шрифта
+                const newFontSize = Math.max(20, baseFontSize - scrollTop / 20);
+                text.style.fontSize = newFontSize + 'px';
+
+                // Логотип уменьшается
+                const newLogoHeight = Math.max(50, baseLogoHeight - scrollTop / 10);
+                headerLogo.style.height = newLogoHeight + 'px';
+
+                // Ширина таблицы уменьшается
+                const newWidth = Math.max(85, baseWidth - scrollTop / 20); // минимум 85%
+                headerTable.style.width = newWidth + '%';
+
+                // Появление кнопки "наверх"
+                if (scrollTop > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.pointerEvents = 'auto';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.pointerEvents = 'none';
+                }
+
+                // Затемнение заголовка
+                if (scrollTop > 50) {
+                    header.style.backgroundColor = 'rgba(79, 71, 125, 0.9)';
+                } else {
+                    header.style.backgroundColor = 'transparent';
+                }
+            });
+
+            // Плавный скролл наверх
+            backToTopBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <table width="95%" id="header-table">
+            <tr>
+                <td style="width: 20%; text-align: right;">
+                    <img src="3994332.png" height="100" id="header-logo">
+                </td>
+                <td style="width: 75%; text-align: right;">
+                    <h1 id="text">ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «УПРАВЛЯЮЩАЯ КОМПАНИЯ «СМАРТ»</h1>
+                </td>
+            </tr>
+        </table>
+
+        <nav>
+            <a href="index.html" class="active">О компании</a>
+            <a href="news.html">Новости</a>
+            <a href="currency.html">Курс валют</a>
+            <a href="contacts.html">Контактные данные</a>
+            <a href="video.html">Видео</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>О компании</h2>
+
+            <p>
+                Общество с ограниченной ответственностью <b>«Управляющая компания «СМАРТ»</b> было создано группой <i>профессиональных инвесторов</i> 
+                в области недвижимости и фондового рынка и зарегистрирована <u>13 августа 2018 года</u> Межрайонной 
+                инспекцией Федеральной налоговой службой № 46 по г. Москве. 
+            </p>
+            <p>
+                Уставный капитал Управляющей компании составляет <b>30 млн. рублей</b> и на момент 
+                регистрации был полностью оплачен денежными средствами учредителей.
+            </p>
+
+            <img class="image" src="https://avatars.mds.yandex.net/get-altay/965237/2a00000162fbc4a30ecf92e31ca74b2f5135/XXL_height">
+
+            <p>
+                10 июля 2019г. Банком России было принято решение о предоставлении лицензии 
+                <u><a href="https://smartpif.ru/assets/storage/5/20_000_1_01025.pdf">№ 21-000-1-01025</a></u> на осуществление 
+                деятельности по управлению инвестиционными фондами, паевыми инвестиционными фондами и негосударственными пенсионными фондами.
+            </p>
+        </section>
+
+        <section class="sdvig">
+            <p></p>
+            <h2>Цель создания Управляющей компании</h2>
+
+            <p>
+                Основная цель создания Управляющей компании — <b>получение дохода</b> от управления закрытыми паевыми 
+                инвестиционными фондами, которые она создаёт, формирует и обслуживает.
+            </p>
+            <p>
+                В своей деятельности Управляющая компания опирается на <i>успешный международный опыт</i> коллективного 
+                инвестирования в различные проекты, включая недвижимость и землю. При этом учитываются особенности 
+                российского финансового рынка, нюансы работы строительного комплекса Москвы и действующее 
+                законодательство Российской Федерации.
+            </p>
+
+            <img class="imageone" src="https://avatars.mds.yandex.net/get-altay/4234257/2a0000017989e24ffdfd509da4d286fffd1e/XXXL">
+        </section>
+
+        <section>
+            <h2>Наши специалисты</h2>
+
+            <p>
+                Команда Управляющей компании состоит из <u>высококвалифицированных специалистов</u> финансового рынка, 
+                управляющих активами, финансовых менеджеров и менеджеров, специализирующихся на управлении 
+                инвестиционными проектами в <i>сфере строительства и недвижимости.</i>
+            </p>
+
+            <img class="imagetwo" src="https://hrlike.ru/wp-content/uploads/2021/01/ooo-lider.1610279050.jpg">
+        </section>  
+        
+
+        <section>
+            <h2>Наш вклад в развитие рынка</h2>
+
+            <p>
+                <b>Основные принципы работы команды</b> — ответственность и творческий подход к решению задач. Это обеспечивает 
+                высокий уровень сервиса и максимальную выгоду для клиентов Управляющей компании.
+            </p>
+            <p>
+                <i>Инновационные механизмы</i>, заложенные в форму закрытых паевых инвестиционных фондов (ЗПИФ), 
+                обеспечивают клиентам Управляющей компании <u>прозрачность</u> и <u>безопасность</u> инвестиций в различные активы.
+            </p>
+            <p>
+                ООО «УК «СМАРТ» стремится активно участвовать в развитии рынка коллективных инвестиций в <i>строительные проекты</i> и 
+                <i>недвижимость</i> в России, привлекая к этому процессу как частных, так и институциональных инвесторов.
+            </p>
+            <p>
+                Команда ООО «УК «СМАРТ» обладает всеми необходимыми ресурсами, чтобы изучить, оценить, 
+                реализовать и эффективно воплотить вашу инвестиционную идею <u>с минимальными затратами</u> времени и финансов.
+            </p>
+
+            <img class="imagethree" src="https://digital.ihg.com/is/image/ihg/holiday-inn-johannesburg-6349069358-4x3">
+        </section>
+    </main>
+
+    <a href="#" class="back-to-top" title="Наверх">↑</a>
+
+    <footer>
+        <marquee behavior=scroll direction="left" scrollamount="5">Общество с ограниченной ответственностью «Управляющая компания «СМАРТ». Тел. + 7 (499) 653-69-03</marquee>
+    </footer>
+</body>
+</html>
