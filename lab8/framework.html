@@ -11,6 +11,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+    /* Для кнопок в списке */
+    .list-group-item button {
+        margin-right: 10px;
+    }
+    
+    /* Для кнопок в таблице */
+    .table-success td button {
+        margin-right: 10px;
+    }
+</style>
 </head>
 
 <body>
@@ -50,19 +61,25 @@
                     <h2 class="card-title">Цветы</h2>
                     <ul class="list-group">
                         <li v-for="(flower, id) in flowers" class="list-group-item">
-                            {{ flower }} <button @click="edit(id, flower)"  class="btn btn-light"><i class="bi bi-pen"></i></button>
+                            {{ flower }} 
+                            <button @click="edit(id, flower)" class="btn btn-light"><i class="bi bi-pen"></i></button>
+                            <button @click="removeFlower(id)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                         </li>
                     </ul>
+                    <button @click="addFlower" class="btn btn-secondary mt-2"><i class="bi bi-plus-circle"></i> Добавить цветок</button>
                 </div>   
             </div> 
             <hr>
 
             <h2>Цветы</h2>
+            <div class="mb-3">
+                <button @click="addFlower" class="btn btn-secondary"><i class="bi bi-plus-circle"></i> Добавить цветок</button>
+            </div>
             <table class="table table-success">
                 <thead>
                     <tr>
                         <th>Название</th>
-                        <th>Редактировать</th>
+                        <th>Действия</th>
                     </tr>
                 </thead>
                 <tr v-for="(flower, id) in flowers">
@@ -73,6 +90,9 @@
                     <td>
                         <button @click="edit(id, flower)" class="btn btn-success" v-if="flower !== null">
                             <i class="bi bi-pencil-square"></i>
+                        </button>
+                        <button @click="removeFlower(id)" class="btn btn-danger" v-if="flower !== null">
+                            <i class="bi bi-trash"></i>
                         </button>
                         <div class="spinner-border text-success" role="status" v-if="flower === null"></div>
                     </td>
@@ -131,10 +151,23 @@
                 },
                 edit(id, flower) {
                     let newName = prompt('Введите имя цветка: ', flower);
-                    this.flowers[id] = null;
-                    setTimeout(() => {
-                        this.flowers[id] = newName;
-                    }, 3000);
+                    if (newName !== null) {
+                        this.flowers[id] = null;
+                        setTimeout(() => {
+                            this.flowers[id] = newName;
+                        }, 3000);
+                    }
+                },
+                removeFlower(id) {
+                    if (confirm('Вы действительно хотите удалить этот цветок?')) {
+                        this.flowers.splice(id, 1);
+                    }
+                },
+                addFlower() {
+                    const newFlower = prompt('Введите название нового цветка:');
+                    if (newFlower !== null && newFlower.trim() !== '') {
+                        this.flowers.push(newFlower.trim());
+                    }
                 },
                 sum() {
                     this.result = this.a + this.b;
